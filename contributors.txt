@@ -1,3 +1,5 @@
+The names listed below are the only contributors to this repository.
+
 Michael Wass
 Benjamin L.
 George M.
