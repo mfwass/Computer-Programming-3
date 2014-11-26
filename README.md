@@ -7,10 +7,7 @@ School work for the course Computer Programming 3.
 Contributors
 ============
 
-Michael Wass
-
-Benjamin L.
-
-George M.
-
 Jacob K.
+Benjamin L.
+George M.
+Michael Wass ~ <mwass@students.westernwayne.org>
