@@ -8,6 +8,9 @@ Contributors
 ============
 
 Jacob K.
+
 Benjamin L.
+
 George M.
+
 Michael Wass ~ <mwass@students.westernwayne.org>
