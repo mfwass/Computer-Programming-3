@@ -65,12 +65,13 @@ namespace TicTacToe {
 	private: System::Windows::Forms::GroupBox^  groupFirst;
 	private: System::Windows::Forms::RadioButton^  radio1First;
 	private: System::Windows::Forms::RadioButton^  radio2First;
-
-
-
+	private: System::Windows::Forms::GroupBox^  groupSymbol;
+	private: System::Windows::Forms::RadioButton^  radioX;
+	private: System::Windows::Forms::RadioButton^  radioO;
 
 	private: System::Windows::Forms::Button^  btnStart;
 	private: System::Windows::Forms::Timer^  timeCPU;
+
 
 
 	private: System::ComponentModel::IContainer^  components;
@@ -130,11 +131,15 @@ namespace TicTacToe {
 			this->groupFirst = (gcnew System::Windows::Forms::GroupBox());
 			this->radio1First = (gcnew System::Windows::Forms::RadioButton());
 			this->radio2First = (gcnew System::Windows::Forms::RadioButton());
+			this->groupSymbol = (gcnew System::Windows::Forms::GroupBox());
+			this->radioX = (gcnew System::Windows::Forms::RadioButton());
+			this->radioO = (gcnew System::Windows::Forms::RadioButton());
 			this->btnStart = (gcnew System::Windows::Forms::Button());
 			this->timeCPU = (gcnew System::Windows::Forms::Timer(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->BeginInit();
 			this->groupPlayer->SuspendLayout();
 			this->groupFirst->SuspendLayout();
+			this->groupSymbol->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// btn1
@@ -280,9 +285,9 @@ namespace TicTacToe {
 			// 
 			// btnReset
 			// 
-			this->btnReset->Location = System::Drawing::Point(199, 154);
+			this->btnReset->Location = System::Drawing::Point(205, 101);
 			this->btnReset->Name = L"btnReset";
-			this->btnReset->Size = System::Drawing::Size(60, 30);
+			this->btnReset->Size = System::Drawing::Size(73, 30);
 			this->btnReset->TabIndex = 12;
 			this->btnReset->Text = L"Reset";
 			this->btnReset->UseVisualStyleBackColor = true;
@@ -327,7 +332,7 @@ namespace TicTacToe {
 			// 
 			this->groupFirst->Controls->Add(this->radio1First);
 			this->groupFirst->Controls->Add(this->radio2First);
-			this->groupFirst->Location = System::Drawing::Point(298, 135);
+			this->groupFirst->Location = System::Drawing::Point(298, 73);
 			this->groupFirst->Name = L"groupFirst";
 			this->groupFirst->Size = System::Drawing::Size(107, 54);
 			this->groupFirst->TabIndex = 16;
@@ -358,11 +363,44 @@ namespace TicTacToe {
 			this->radio2First->UseVisualStyleBackColor = true;
 			this->radio2First->CheckedChanged += gcnew System::EventHandler(this, &Form1::radio2First_CheckedChanged);
 			// 
+			// groupSymbol
+			// 
+			this->groupSymbol->Controls->Add(this->radioX);
+			this->groupSymbol->Controls->Add(this->radioO);
+			this->groupSymbol->Location = System::Drawing::Point(298, 135);
+			this->groupSymbol->Name = L"groupSymbol";
+			this->groupSymbol->Size = System::Drawing::Size(107, 54);
+			this->groupSymbol->TabIndex = 17;
+			this->groupSymbol->TabStop = false;
+			this->groupSymbol->Text = L"Symbol (Player 1)";
+			// 
+			// radioX
+			// 
+			this->radioX->AutoSize = true;
+			this->radioX->Checked = true;
+			this->radioX->Location = System::Drawing::Point(6, 15);
+			this->radioX->Name = L"radioX";
+			this->radioX->Size = System::Drawing::Size(32, 17);
+			this->radioX->TabIndex = 13;
+			this->radioX->TabStop = true;
+			this->radioX->Text = L"X";
+			this->radioX->UseVisualStyleBackColor = true;
+			// 
+			// radioO
+			// 
+			this->radioO->AutoSize = true;
+			this->radioO->Location = System::Drawing::Point(5, 32);
+			this->radioO->Name = L"radioO";
+			this->radioO->Size = System::Drawing::Size(33, 17);
+			this->radioO->TabIndex = 14;
+			this->radioO->Text = L"O";
+			this->radioO->UseVisualStyleBackColor = true;
+			// 
 			// btnStart
 			// 
-			this->btnStart->Location = System::Drawing::Point(199, 118);
+			this->btnStart->Location = System::Drawing::Point(205, 65);
 			this->btnStart->Name = L"btnStart";
-			this->btnStart->Size = System::Drawing::Size(60, 30);
+			this->btnStart->Size = System::Drawing::Size(73, 30);
 			this->btnStart->TabIndex = 18;
 			this->btnStart->Text = L"Start";
 			this->btnStart->UseVisualStyleBackColor = true;
@@ -371,7 +409,7 @@ namespace TicTacToe {
 			// timeCPU
 			// 
 			this->timeCPU->Enabled = true;
-			this->timeCPU->Interval = 2;
+			this->timeCPU->Interval = 1;
 			this->timeCPU->Tick += gcnew System::EventHandler(this, &Form1::timeCPU_Tick);
 			// 
 			// Form1
@@ -380,6 +418,7 @@ namespace TicTacToe {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(414, 201);
 			this->Controls->Add(this->btnStart);
+			this->Controls->Add(this->groupSymbol);
 			this->Controls->Add(this->groupFirst);
 			this->Controls->Add(this->groupPlayer);
 			this->Controls->Add(this->btnReset);
@@ -404,6 +443,8 @@ namespace TicTacToe {
 			this->groupPlayer->PerformLayout();
 			this->groupFirst->ResumeLayout(false);
 			this->groupFirst->PerformLayout();
+			this->groupSymbol->ResumeLayout(false);
+			this->groupSymbol->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -416,8 +457,10 @@ namespace TicTacToe {
 		bool win;
 		String^ winner;
 		int frst;
-
+		//double NULL, SND_RESOURCE, PlaySound, SND_FILENAME, SND_ASYNC;
 private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
+			 //PlaySound("sleepless.mid", NULL, SND_FILENAME, SND_ASYNC);
+			 //PlaySound("sleepless.mid", NULL, SND_RESOURCE);
 			 btn1->Enabled = false;
 			 btn2->Enabled = false;
 			 btn3->Enabled = false;
@@ -449,21 +492,33 @@ private: System::Void btnStart_Click(System::Object^  sender, System::EventArgs^
 			 btn9->Enabled = true;
 			 groupPlayer->Enabled = false;
 			 groupFirst->Enabled = false;
+			 groupSymbol->Enabled = false;
 			 btnStart->Enabled = false;
-			 txtWin->Text = "Inconclusive";
+			 txtWin->Text = "";
 		 }	
 
-private: System::Void timePlayer_Tick(System::Object^  sender, System::EventArgs^  e)  {
-				 
-			 if (turn == 0) { 
+private: System::Void timePlayer_Tick(System::Object^  sender, System::EventArgs^  e) {
+				 //Turn Check
+			 if (radioX->Checked) {
+				 if (turn == 0) { 
 					 side = "X";
 				 }
 				 if (turn == 1) { 
 					 side = "O";
 				 }
+			 }
+			  if (radioO->Checked) {
+				 if (turn == 0) { 
+					 side = "0";
+				 }
+				 if (turn == 1) { 
+					 side = "X";
+				 }
+			 }
 
 				 if (!(btn1->Enabled) && !(btn2->Enabled) && (btn3->Enabled) && !(btn4->Enabled) && (btn5->Enabled) && !(btn6->Enabled) && (btn7->Enabled) && !(btn8->Enabled) && !(btn9->Enabled)) {
 					win = false;
+					 btnReset->Enabled = true;
 					 txtWin->Text = "No Winner";
 					}
 				 //Win Check 
@@ -595,18 +650,17 @@ private: System::Void timePlayer_Tick(System::Object^  sender, System::EventArgs
 					}
 
 					 if (win == true) {
-							 if (winner = "X") {
+							 if (turn = 1) {
 							 txtWin->Text = "Player 1";
 							 }
-					if (win == true) {
-							 if (winner = "O") {
-							    txtWin->Text = "Player 2";
-								 
+							 if (turn = 0) {
+								 if (players = 1) {
+								 txtWin->Text = "Player 2";
+								 }
 								 if (players = 0) {
 								 txtWin->Text = "Computer";
 								 }
 							 }
-						}
 					}
 			 }
 
@@ -741,27 +795,33 @@ private: System::Void btnReset_Click(System::Object^  sender, System::EventArgs^
 			 btn9->Text = "";
 			 groupPlayer->Enabled = true;
 			 groupFirst->Enabled = true;
+			 groupSymbol->Enabled = true;
 			 btnReset->Enabled = true;
 			 btnStart->Enabled = true;
 			 win = false;
-			 players = players;
 		 }
 private: System::Void radio1Player_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 		 players = 0;
 		 radio2First->Text = "CPU";
 		 }
 private: System::Void radio2Player_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
-		 players = 1;
+		 players = 2;
 		 radio2First->Text = "Player 2";
+		 }
+private: System::Void radio1First_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+		 frst = 0;
+		 }
+private: System::Void radio2First_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+		 frst = 1;
 		 }
 private: System::Void timeCPU_Tick(System::Object^  sender, System::EventArgs^  e) {
 			 //AI
 			 if (players == 0) {
 			 if (turn == 1) { 
 				 //Block
-				 
+
 				 //Horizontal
-				 if  ((btn1->Text->Equals(btn2->Text)) && !(btn1->Text->Equals("")) && (btn3->Enabled)) {
+				  if ((btn1->Text->Equals(btn2->Text)) && !(btn1->Text->Equals("")) && (btn3->Enabled)) {
 					 btn3->Text = side;
 					 btn3->Enabled = false;
 					 turn = 0;
@@ -771,38 +831,38 @@ private: System::Void timeCPU_Tick(System::Object^  sender, System::EventArgs^  
 					 btn2->Enabled = false;
 					 turn = 0;
 				 }
-				  else if   ((btn2->Text->Equals(btn3->Text)) && !(btn2->Text->Equals("")) && (btn1->Enabled)) {
+				  else if  ((btn2->Text->Equals(btn3->Text)) && !(btn2->Text->Equals("")) && (btn3->Enabled)) {
 					 btn1->Text = side;
 					 btn1->Enabled = false;
 					 turn = 0;
 				 }
 				 
-				 else if  ((btn4->Text->Equals(btn5->Text)) && !(btn4->Text->Equals("")) && (btn6->Enabled)) {
+				 else if ((btn4->Text->Equals(btn5->Text)) && !(btn4->Text->Equals("")) && (btn6->Enabled)) {
 					 btn6->Text = side;
 					 btn6->Enabled = false;
 					 turn = 0;
 				 }
-				   else if   ((btn4->Text->Equals(btn6->Text)) && !(btn4->Text->Equals("")) && (btn5->Enabled)) {
+				  else if  ((btn4->Text->Equals(btn6->Text)) && !(btn4->Text->Equals("")) && (btn5->Enabled)) {
 					 btn5->Text = side;
 					 btn5->Enabled = false;
 					 turn = 0;
 				 }
-				  else if   ((btn5->Text->Equals(btn6->Text)) && !(btn5->Text->Equals("")) && (btn6->Enabled)) {
+				  else if  ((btn5->Text->Equals(btn6->Text)) && !(btn5->Text->Equals("")) && (btn6->Enabled)) {
 					 btn4->Text = side;
 					 btn4->Enabled = false;
 					 turn = 0;
 				 }
-				  else if  ((btn7->Text->Equals(btn8->Text)) && !(btn7->Text->Equals("")) && (btn9->Enabled)) {
+				 else if ((btn7->Text->Equals(btn8->Text)) && !(btn7->Text->Equals("")) && (btn9->Enabled)) {
 					 btn9->Text = side;
 					 btn9->Enabled = false;
 					 turn = 0;
 				 }
-				   else if   ((btn7->Text->Equals(btn9->Text)) && !(btn7->Text->Equals("")) && (btn8->Enabled)) {
+				  else if  ((btn7->Text->Equals(btn9->Text)) && !(btn7->Text->Equals("")) && (btn8->Enabled)) {
 					 btn8->Text = side;
 					 btn8->Enabled = false;
 					 turn = 0;
 				 }
-				  else if   ((btn8->Text->Equals(btn9->Text)) && !(btn8->Text->Equals("")) && (btn9->Enabled)) {
+				  else if  ((btn8->Text->Equals(btn9->Text)) && !(btn8->Text->Equals("")) && (btn9->Enabled)) {
 					 btn7->Text = side;
 					 btn7->Enabled = false;
 					 turn = 0;
@@ -810,109 +870,116 @@ private: System::Void timeCPU_Tick(System::Object^  sender, System::EventArgs^  
 				 
 				 
 				 //Vertical
-				 else if   ((btn1->Text->Equals(btn4->Text)) && !(btn4->Text->Equals("")) && (btn7->Enabled)) {
+				 else if  ((btn1->Text->Equals(btn4->Text)) && !(btn4->Text->Equals("")) && (btn7->Enabled)) {
 					 btn7->Text = side;
 					 btn7->Enabled = false;
 					 turn = 0;
 				 }
-				  else if   ((btn1->Text->Equals(btn7->Text)) && !(btn1->Text->Equals("")) && (btn4->Enabled)) {
+				  else if  ((btn1->Text->Equals(btn7->Text)) && !(btn1->Text->Equals("")) && (btn4->Enabled)) {
 					 btn4->Text = side;
 					 btn4->Enabled = false;
 					 turn = 0;
 				 }
-				   else if   ((btn4->Text->Equals(btn7->Text)) && !(btn4->Text->Equals("")) && (btn1->Enabled)) {
+				  else if  ((btn4->Text->Equals(btn7->Text)) && !(btn4->Text->Equals("")) && (btn1->Enabled)) {
 					 btn1->Text = side;
 					 btn1->Enabled = false;
 					 turn = 0;
 				 }
 				 
-				  else if   ((btn2->Text->Equals(btn5->Text)) && !(btn5->Text->Equals("")) && (btn8->Enabled)) {
+				 else if  ((btn2->Text->Equals(btn5->Text)) && !(btn5->Text->Equals("")) && (btn8->Enabled)) {
 					 btn8->Text = side;
 					 btn8->Enabled = false;
 					 turn = 0;
 				 }
-				 else if   ((btn2->Text->Equals(btn8->Text)) && !(btn2->Text->Equals("")) && (btn5->Enabled)) {
+				  else if  ((btn2->Text->Equals(btn8->Text)) && !(btn2->Text->Equals("")) && (btn5->Enabled)) {
 					 btn5->Text = side;
 					 btn5->Enabled = false;
 					 turn = 0;
 				 }
-				   else if   ((btn5->Text->Equals(btn8->Text)) && !(btn5->Text->Equals("")) && (btn2->Enabled)) {
+				  else if  ((btn5->Text->Equals(btn8->Text)) && !(btn5->Text->Equals("")) && (btn2->Enabled)) {
 					 btn2->Text = side;
 					 btn2->Enabled = false;
 					 turn = 0;
 				 }
-				  else if   ((btn3->Text->Equals(btn6->Text)) && !(btn6->Text->Equals("")) && (btn9->Enabled)) {
+				 else if  ((btn3->Text->Equals(btn6->Text)) && !(btn6->Text->Equals("")) && (btn9->Enabled)) {
 					 btn9->Text = side;
 					 btn9->Enabled = false;
 					 turn = 0;
 				 }
-				  else if   ((btn3->Text->Equals(btn9->Text)) && !(btn3->Text->Equals("")) && (btn6->Enabled)) {
+				  else if  ((btn3->Text->Equals(btn9->Text)) && !(btn3->Text->Equals("")) && (btn6->Enabled)) {
 					 btn6->Text = side;
 					 btn6->Enabled = false;
 					 turn = 0;
 				 }
-				   else if   ((btn6->Text->Equals(btn9->Text)) && !(btn6->Text->Equals("")) && (btn3->Enabled)) {
+				  else if  ((btn6->Text->Equals(btn9->Text)) && !(btn6->Text->Equals("")) && (btn3->Enabled)) {
 					 btn3->Text = side;
 					 btn3->Enabled = false;
 					 turn = 0;
 				 }
-				  else if   ((btn1->Text->Equals(btn5->Text)) && !(btn1->Text->Equals("")) && (btn9->Enabled)) {
+				 else if  ((btn1->Text->Equals(btn5->Text)) && !(btn1->Text->Equals("")) && (btn9->Enabled)) {
 					 btn9->Text = side;
 					 btn9->Enabled = false;
 					 turn = 0;
 				 }
-				   else if   ((btn3->Text->Equals(btn5->Text)) && !(btn5->Text->Equals("")) && (btn7->Enabled)) {
+				  else if  ((btn3->Text->Equals(btn5->Text)) && !(btn5->Text->Equals("")) && (btn7->Enabled)) {
 					 btn7->Text = side;
 					 btn7->Enabled = false;
 					 turn = 0;
 				 }
-				  else if   (btn5->Enabled) {
+				  else if  (btn5->Enabled) {
 					 btn5->Text = side;
 					 btn5->Enabled = false;
 					 turn = 0;
 				 }
 			  
-				  else if   (btn1->Enabled) {
+				  else if  (btn1->Enabled) {
 					 btn1->Text = side;
 					 btn1->Enabled = false;
 					 turn = 0;
 				 }
-				  else if   (btn3->Enabled) {
+				  else if  (btn3->Enabled) {
 					 btn3->Text = side;
 					 btn3->Enabled = false;
 					 turn = 0;
 				 }
-				   else if   (btn7->Enabled) {
+				  else if  (btn7->Enabled) {
 					 btn7->Text = side;
 					 btn7->Enabled = false;
 					 turn = 0;
 				 }
 				  
-				  else if   (btn9->Enabled) {
+				  else if  (btn9->Enabled) {
 					 btn9->Text = side;
 					 btn9->Enabled = false;
 					 turn = 0;
 					 }
 				      
-				 else if   (btn2->Enabled) {
+				  else if  (btn2->Enabled) {
 					 btn2->Text = side;
 					 btn2->Enabled = false;
 					 turn = 0;
 				 }
-				 else if   (btn8->Enabled) {
+				  else if  (btn8->Enabled) {
 					 btn8->Text = side;
 					 btn8->Enabled = false;
-					 turn = 0;				 
+					 turn = 0;
+				 
+				  }
+				  else if  (btn6->Enabled) {
+					 btn6->Text = side;
+					 btn6->Enabled = false;
+					 turn = 0;
+				 
+				  }
+				  else if  (btn9->Enabled) {
+					 btn9->Text = side;
+					 btn9->Enabled = false;
+					 turn = 0;
+				 
 				  }
 				}
 			 }
 		}
 
-	private: System::Void radio1First_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
-				 frst = 0;
-			 }
-private: System::Void radio2First_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
-			 frst = 1;
-		 }
-};
+	};
 }
