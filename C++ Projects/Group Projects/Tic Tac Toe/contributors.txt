@@ -1,4 +1,4 @@
-The names listed below are the only contributors to this repository.
+The names listed below are the only contributors to the Tic Tac Toe project.
 
 Jacob K.
 Benjamin L.

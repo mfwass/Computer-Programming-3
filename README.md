@@ -1,16 +1,4 @@
 Computer Programming 3
 ======================
 
-School work for the course Computer Programming 3.
-
-
-Contributors
-============
-
-Jacob K.
-
-Benjamin L.
-
-George M.
-
-Michael Wass ~ <mwass@students.westernwayne.org>
+This is a personal repository to keep track of school work for the course Computer Programming 3.
