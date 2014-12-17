@@ -9,7 +9,7 @@ Contributors
 
 Jacob K.
 
-Benjamin L.
+Benjamin Lasota ~ <blasot@students.westernwayne.org>
 
 George M.
 
