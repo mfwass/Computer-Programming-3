@@ -1,4 +1,4 @@
-The names listed below are the contributors to the Tic Tac Toe project.
+The names listed below are the contributors to the Shift Cipher project.
 
 Jacob K.
 Benjamin Lasota ~ blasot@students.westerwayne.org
