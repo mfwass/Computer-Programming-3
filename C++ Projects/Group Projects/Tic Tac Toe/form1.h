@@ -71,6 +71,7 @@ namespace TicTacToe {
 
 	private: System::Windows::Forms::Button^  btnStart;
 	private: System::Windows::Forms::Timer^  timeCPU;
+	private: System::Windows::Forms::Timer^  WinCheck;
 
 
 
@@ -136,6 +137,7 @@ namespace TicTacToe {
 			this->radioO = (gcnew System::Windows::Forms::RadioButton());
 			this->btnStart = (gcnew System::Windows::Forms::Button());
 			this->timeCPU = (gcnew System::Windows::Forms::Timer(this->components));
+			this->WinCheck = (gcnew System::Windows::Forms::Timer(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->BeginInit();
 			this->groupPlayer->SuspendLayout();
 			this->groupFirst->SuspendLayout();
@@ -380,10 +382,10 @@ namespace TicTacToe {
 			this->radioX->Checked = true;
 			this->radioX->Location = System::Drawing::Point(6, 15);
 			this->radioX->Name = L"radioX";
-			this->radioX->Size = System::Drawing::Size(32, 17);
+			this->radioX->Size = System::Drawing::Size(33, 17);
 			this->radioX->TabIndex = 13;
 			this->radioX->TabStop = true;
-			this->radioX->Text = L"X";
+			this->radioX->Text = L"O";
 			this->radioX->UseVisualStyleBackColor = true;
 			// 
 			// radioO
@@ -391,9 +393,9 @@ namespace TicTacToe {
 			this->radioO->AutoSize = true;
 			this->radioO->Location = System::Drawing::Point(5, 32);
 			this->radioO->Name = L"radioO";
-			this->radioO->Size = System::Drawing::Size(33, 17);
+			this->radioO->Size = System::Drawing::Size(32, 17);
 			this->radioO->TabIndex = 14;
-			this->radioO->Text = L"O";
+			this->radioO->Text = L"X";
 			this->radioO->UseVisualStyleBackColor = true;
 			// 
 			// btnStart
@@ -411,6 +413,12 @@ namespace TicTacToe {
 			this->timeCPU->Enabled = true;
 			this->timeCPU->Interval = 1;
 			this->timeCPU->Tick += gcnew System::EventHandler(this, &Form1::timeCPU_Tick);
+			// 
+			// WinCheck
+			// 
+			this->WinCheck->Enabled = true;
+			this->WinCheck->Interval = 1;
+			this->WinCheck->Tick += gcnew System::EventHandler(this, &Form1::WinCheck_Tick);
 			// 
 			// Form1
 			// 
@@ -470,17 +478,10 @@ private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e)
 			 btn7->Enabled = false;
 			 btn8->Enabled = false;
 			 btn9->Enabled = false;
-			 radio2First->Text = "CPU";
-			 
+			 radio2First->Text = "CPU"; 
 		 }
 
 private: System::Void btnStart_Click(System::Object^  sender, System::EventArgs^  e) {
-			 if (frst == 0) {
-				 turn = 0;
-			 }
-			 if (frst == 1) {
-				 turn = 1;
-			 }
 			 btn1->Enabled = true;
 			 btn2->Enabled = true;
 			 btn3->Enabled = true;
@@ -495,24 +496,30 @@ private: System::Void btnStart_Click(System::Object^  sender, System::EventArgs^
 			 groupSymbol->Enabled = false;
 			 btnStart->Enabled = false;
 			 txtWin->Text = "";
+			 if (frst == 0) {
+				 turn = 0;
+			 }
+			 if (frst == 1) {
+				 turn = 1;
+			 }
 		 }	
 
 private: System::Void timePlayer_Tick(System::Object^  sender, System::EventArgs^  e) {
 				 //Turn Check
 			 if (radioX->Checked) {
 				 if (turn == 0) { 
-					 side = "X";
+					 side = radioX->Text;
 				 }
 				 if (turn == 1) { 
-					 side = "O";
+					 side = radioO->Text;
 				 }
 			 }
 			  if (radioO->Checked) {
 				 if (turn == 0) { 
-					 side = "0";
+					 side = radioO->Text;
 				 }
 				 if (turn == 1) { 
-					 side = "X";
+					 side = radioX->Text;
 				 }
 			 }
 
@@ -551,7 +558,6 @@ private: System::Void timePlayer_Tick(System::Object^  sender, System::EventArgs
 					 btn7->Enabled = false;
 					 btn8->Enabled = false;
 					 btn9->Enabled = false; 
-					
 					 btnReset->Enabled = true;
 				 }
 				 if ((btn7->Text->Equals(btn8->Text) && btn8->Text->Equals(btn9->Text)) && !(btn7->Text->Equals(""))) {
@@ -647,20 +653,6 @@ private: System::Void timePlayer_Tick(System::Object^  sender, System::EventArgs
 					 btn9->Enabled = false; 
 					 
 					 btnReset->Enabled = true;
-					}
-
-					 if (win == true) {
-							 if (turn = 1) {
-							 txtWin->Text = "Player 1";
-							 }
-							 if (turn = 0) {
-								 if (players = 1) {
-								 txtWin->Text = "Player 2";
-								 }
-								 if (players = 0) {
-								 txtWin->Text = "Computer";
-								 }
-							 }
 					}
 			 }
 
@@ -819,7 +811,7 @@ private: System::Void timeCPU_Tick(System::Object^  sender, System::EventArgs^  
 			 if (players == 0) {
 			 if (turn == 1) { 
 				 //Block
-
+				 
 				 //Horizontal
 				  if ((btn1->Text->Equals(btn2->Text)) && !(btn1->Text->Equals("")) && (btn3->Enabled)) {
 					 btn3->Text = side;
@@ -981,5 +973,20 @@ private: System::Void timeCPU_Tick(System::Object^  sender, System::EventArgs^  
 			 }
 		}
 
-	};
+	private: System::Void WinCheck_Tick(System::Object^  sender, System::EventArgs^  e) {
+				 if (win == true) {
+							 if (turn = 1) {
+							     txtWin->Text = "Player 1";
+							 }
+							 if (turn = 0) {
+								 if (players = 1) {
+									 txtWin->Text = "Player 2";
+								 }
+								 if (players = 0) {
+									 txtWin->Text = "Computer";
+								 }
+							 }
+					}
+			 }
+};
 }
