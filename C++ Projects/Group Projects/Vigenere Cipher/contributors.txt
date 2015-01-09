@@ -1,0 +1,6 @@
+The names listed below are the contributors to the Vigenere Cipher project.
+
+Jacob K.
+Benjamin Lasota ~ blasot@students.westerwayne.org
+George M. 
+Michael Wass ~ mwass@students.westernwayne.org
