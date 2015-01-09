@@ -1,0 +1,4 @@
+#This file will tell GIT to ignore certain files/directories that we do not want uploaded to the repository.
+
+#mac directory info
+*.DS_Store
