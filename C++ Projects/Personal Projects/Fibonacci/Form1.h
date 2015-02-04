@@ -66,6 +66,7 @@ namespace Fibonacci {
 
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Button^  btnStart;
+	private: System::Windows::Forms::Button^  button1;
 
 	protected: 
 
@@ -95,11 +96,13 @@ namespace Fibonacci {
 			this->txtNum9 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->btnStart = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// txtStartNum
 			// 
 			this->txtStartNum->Location = System::Drawing::Point(150, 16);
+			this->txtStartNum->MaxLength = 10;
 			this->txtStartNum->Multiline = true;
 			this->txtStartNum->Name = L"txtStartNum";
 			this->txtStartNum->Size = System::Drawing::Size(63, 57);
@@ -107,7 +110,10 @@ namespace Fibonacci {
 			// 
 			// txtNum1
 			// 
+			this->txtNum1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(0)));
 			this->txtNum1->Location = System::Drawing::Point(12, 86);
+			this->txtNum1->MaxLength = 15;
 			this->txtNum1->Multiline = true;
 			this->txtNum1->Name = L"txtNum1";
 			this->txtNum1->Size = System::Drawing::Size(63, 84);
@@ -115,7 +121,10 @@ namespace Fibonacci {
 			// 
 			// txtNum2
 			// 
+			this->txtNum2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(0)));
 			this->txtNum2->Location = System::Drawing::Point(81, 86);
+			this->txtNum2->MaxLength = 15;
 			this->txtNum2->Multiline = true;
 			this->txtNum2->Name = L"txtNum2";
 			this->txtNum2->Size = System::Drawing::Size(63, 84);
@@ -123,7 +132,10 @@ namespace Fibonacci {
 			// 
 			// txtNum4
 			// 
+			this->txtNum4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(0)));
 			this->txtNum4->Location = System::Drawing::Point(219, 86);
+			this->txtNum4->MaxLength = 15;
 			this->txtNum4->Multiline = true;
 			this->txtNum4->Name = L"txtNum4";
 			this->txtNum4->Size = System::Drawing::Size(63, 84);
@@ -131,7 +143,10 @@ namespace Fibonacci {
 			// 
 			// txtNum3
 			// 
+			this->txtNum3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(0)));
 			this->txtNum3->Location = System::Drawing::Point(150, 86);
+			this->txtNum3->MaxLength = 15;
 			this->txtNum3->Multiline = true;
 			this->txtNum3->Name = L"txtNum3";
 			this->txtNum3->Size = System::Drawing::Size(63, 84);
@@ -139,7 +154,10 @@ namespace Fibonacci {
 			// 
 			// txtNum6
 			// 
+			this->txtNum6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(0)));
 			this->txtNum6->Location = System::Drawing::Point(357, 86);
+			this->txtNum6->MaxLength = 15;
 			this->txtNum6->Multiline = true;
 			this->txtNum6->Name = L"txtNum6";
 			this->txtNum6->Size = System::Drawing::Size(63, 84);
@@ -147,7 +165,10 @@ namespace Fibonacci {
 			// 
 			// txtNum5
 			// 
+			this->txtNum5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(0)));
 			this->txtNum5->Location = System::Drawing::Point(288, 86);
+			this->txtNum5->MaxLength = 15;
 			this->txtNum5->Multiline = true;
 			this->txtNum5->Name = L"txtNum5";
 			this->txtNum5->Size = System::Drawing::Size(63, 84);
@@ -155,7 +176,10 @@ namespace Fibonacci {
 			// 
 			// txtNum8
 			// 
+			this->txtNum8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(0)));
 			this->txtNum8->Location = System::Drawing::Point(495, 86);
+			this->txtNum8->MaxLength = 15;
 			this->txtNum8->Multiline = true;
 			this->txtNum8->Name = L"txtNum8";
 			this->txtNum8->Size = System::Drawing::Size(63, 84);
@@ -163,7 +187,10 @@ namespace Fibonacci {
 			// 
 			// txtNum7
 			// 
+			this->txtNum7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(0)));
 			this->txtNum7->Location = System::Drawing::Point(426, 86);
+			this->txtNum7->MaxLength = 15;
 			this->txtNum7->Multiline = true;
 			this->txtNum7->Name = L"txtNum7";
 			this->txtNum7->Size = System::Drawing::Size(63, 84);
@@ -171,7 +198,10 @@ namespace Fibonacci {
 			// 
 			// txtNum10
 			// 
+			this->txtNum10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(0)));
 			this->txtNum10->Location = System::Drawing::Point(633, 86);
+			this->txtNum10->MaxLength = 15;
 			this->txtNum10->Multiline = true;
 			this->txtNum10->Name = L"txtNum10";
 			this->txtNum10->Size = System::Drawing::Size(63, 84);
@@ -179,7 +209,10 @@ namespace Fibonacci {
 			// 
 			// txtNum9
 			// 
+			this->txtNum9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(0)));
 			this->txtNum9->Location = System::Drawing::Point(564, 86);
+			this->txtNum9->MaxLength = 15;
 			this->txtNum9->Multiline = true;
 			this->txtNum9->Name = L"txtNum9";
 			this->txtNum9->Size = System::Drawing::Size(63, 84);
@@ -201,17 +234,30 @@ namespace Fibonacci {
 				static_cast<System::Byte>(0)));
 			this->btnStart->Location = System::Drawing::Point(220, 16);
 			this->btnStart->Name = L"btnStart";
-			this->btnStart->Size = System::Drawing::Size(476, 57);
+			this->btnStart->Size = System::Drawing::Size(338, 57);
 			this->btnStart->TabIndex = 12;
 			this->btnStart->Text = L"GO!";
 			this->btnStart->UseVisualStyleBackColor = true;
 			this->btnStart->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
+			// 
+			// button1
+			// 
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(0)));
+			this->button1->Location = System::Drawing::Point(565, 16);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(131, 57);
+			this->button1->TabIndex = 13;
+			this->button1->Text = L"CLEAR";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click_1);
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(714, 212);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->btnStart);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->txtNum10);
@@ -278,11 +324,66 @@ namespace Fibonacci {
 					 txtNum8->Text="ERROR";
 					 txtNum9->Text="ERROR";
 					 txtNum10->Text="ERROR";
-					 MessageBox::Show(L"You must enter a value greater than 0",L"ERROR");
+					 txtNum1->BackColor = Color::Red;
+					 txtNum2->BackColor = Color::Red;
+					 txtNum3->BackColor = Color::Red;
+					 txtNum4->BackColor = Color::Red;
+					 txtNum5->BackColor = Color::Red;
+					 txtNum6->BackColor = Color::Red;
+					 txtNum7->BackColor = Color::Red;
+					 txtNum8->BackColor = Color::Red;
+					 txtNum9->BackColor = Color::Red;
+					 txtNum10->BackColor = Color::Red;
+					 MessageBox::Show(L"There was a problem with your input. Please try again.",L"Error 1");
+					 txtStartNum->Clear();
 					 txtStartNum->Focus();
 
 				 }
 			 }
+private: System::Void button1_Click_1(System::Object^  sender, System::EventArgs^  e) {
+			 txtNum1->BackColor = Color::White;
+			 txtNum2->BackColor = Color::White;
+			 txtNum3->BackColor = Color::White;
+			 txtNum4->BackColor = Color::White;
+			 txtNum5->BackColor = Color::White;
+			 txtNum6->BackColor = Color::White;
+			 txtNum7->BackColor = Color::White;
+			 txtNum8->BackColor = Color::White;
+			 txtNum9->BackColor = Color::White;
+			 txtNum10->BackColor = Color::White;
+			 txtNum1->Clear();
+			 txtNum2->Clear();
+			 txtNum3->Clear();
+			 txtNum4->Clear();
+			 txtNum5->Clear();
+			 txtNum6->Clear();
+			 txtNum7->Clear();
+			 txtNum8->Clear();
+			 txtNum9->Clear();
+			 txtNum10->Clear();
+			 txtStartNum->Clear();
+			 num = 0;
+			 num1 = 0;
+			 num2 = 0;
+			 num3 = 0;
+			 num4 = 0;
+			 num5 = 0;
+			 num6 = 0;
+			 num7 = 0;
+			 num8 = 0;
+			 num9 = 0;
+			 num10 = 0;
+			 out1 = 0;
+			 out2 = 0;
+			 out3 = 0;
+			 out4 = 0;
+			 out5 = 0;
+			 out6 = 0;
+			 out7 = 0;
+			 out8 = 0;
+			 out9 = 0;
+			 MessageBox::Show(L"Clear Successful!",L"Success");
+		 }
 };
 }
 
