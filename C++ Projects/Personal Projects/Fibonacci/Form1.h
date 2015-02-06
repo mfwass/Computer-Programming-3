@@ -376,6 +376,38 @@ namespace FibonacciProgram {
 					 txtNum11->Text= out9.ToString();
 				 }
 				 else {
+					 num = 0;
+					 num1 = 0;
+					 num2 = 0;
+					 num3 = 0;
+					 num4 = 0;
+					 num5 = 0;
+					 num6 = 0;
+					 num7 = 0;
+					 num8 = 0;
+					 num9 = 0;
+					 num10 = 0;
+					 num11 = 0;
+					 out1 = 0;
+					 out2 = 0;
+					 out3 = 0;
+					 out4 = 0;
+					 out5 = 0;
+					 out6 = 0;
+					 out7 = 0;
+					 out8 = 0;
+					 out9 = 0;
+					 txtNum2->Clear();
+					 txtNum3->Clear();
+					 txtNum4->Clear();
+					 txtNum5->Clear();
+					 txtNum6->Clear();
+					 txtNum7->Clear();
+					 txtNum8->Clear();
+					 txtNum9->Clear();
+					 txtNum10->Clear();
+					 txtNum11->Clear();
+					 txtInput->Clear();
 					 MessageBox::Show(L"Oops.. there was a problem with your input. Try again.",L"ERROR");
 					 txtInput->Clear();
 					 txtInput->Focus();
